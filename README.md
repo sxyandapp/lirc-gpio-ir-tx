@@ -8,8 +8,8 @@ raspberry pi 的lirc发射驱动
 ---
 本驱动是基于树莓派官方的`gpio-ir-tx`进行了增强，增强功能如下：  
 1. 支持0hz的数据发送，也就是发送未调制的数据，例如可以发送数据给315/433模块
-2. 可以自定义`device_name`，为什么要有这个功能呢，因为当同时激活了多个`gpio-ir-tx`是，他们会注册多个设备到/dev下，名字会随机分配为/dev/lircX，且树莓派重启后此顺序会随机分配，那么如何区分每个设备呢？就是通过此`device_name`，你可以给每个设备定义不同的`device_name`，然后来判断每个/dev/lircX的功能  
-  我目前的方法是在`"/sys/class/rc`路径下查看所有的lirc设备，每个设备目录里有个uevent文件，cat此文件可以看到文件内容包含了自定义的`device_name`，同时在此目录里还有个lircX，使用此名字可直接对应到/dev/lircX
+2. 可以自定义`device_name`，为什么要有这个功能呢，因为当同时激活了多个`gpio-ir-tx`时，他们会注册多个设备到/dev下，名字会随机分配为/dev/lircX，且树莓派重启后此顺序会随机分配，那么如何区分每个设备呢？就是通过此`device_name`，你可以给每个设备定义不同的`device_name`，然后来判断每个/dev/lircX的功能  
+  我目前的判断方法是在`"/sys/class/rc`路径下查看所有的lirc设备，每个设备目录里有个uevent文件，cat此文件可以看到文件内容包含了自定义的`device_name`，同时在此目录里还有个lircX，使用此名字可直接对应到/dev/lircX
 
 > 编译及使用
 
