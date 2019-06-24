@@ -1,0 +1,1 @@
+dtc -I dts -O dtb -o gpio-ir-tx.dtbo gpio-ir-tx-overlay.dts
