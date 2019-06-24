@@ -1,9 +1,9 @@
 # lirc-gpio-ir-tx
-raspberry pi 的lirc发送驱动
-树莓派的lirc驱动更新后，原有的lirc分割为了两部分，一个是接收驱动`gpio-ir-rx`，一个是发射驱动`gpio-ir-tx`，此外还有一个基于pwm的发射驱动`gpio-ir-tx-pwm`，这三个驱动的功能如下：
-`gpio-ir-rx`：接收来自红外接收头的数据，对原始数据解调后，转换为pulse/space数据，使用mode2等程序可直接读取驱动数据并输出pulse/space数据，此驱动激活后，会注册`/dev/lircX`设备
-`gpio-ir-tx`：将pulse/space数据通过红外发射头发射出去，默认发射的数据是使用代码实现的38khz调制
-`gpio-ir-tx-pwm`：和`gpio-ir-tx`功能类似，只不过是使用的硬件pwm实现的38khz调制，因此此驱动只能使用支持pwm的引脚，具体哪些引脚需要查阅树莓派的gpio功能说明
+raspberry pi 的lirc发送驱动  
+树莓派的lirc驱动更新后，原有的lirc分割为了两部分，一个是接收驱动`gpio-ir-rx`，一个是发射驱动`gpio-ir-tx`，此外还有一个基于pwm的发射驱动`gpio-ir-tx-pwm`，这三个驱动的功能如下：  
+`gpio-ir-rx`：接收来自红外接收头的数据，对原始数据解调后，转换为pulse/space数据，使用mode2等程序可直接读取驱动数据并输出pulse/space数据，此驱动激活后，会注册`/dev/lircX`设备  
+`gpio-ir-tx`：将pulse/space数据通过红外发射头发射出去，默认发射的数据是使用代码实现的38khz调制  
+`gpio-ir-tx-pwm`：和`gpio-ir-tx`功能类似，只不过是使用的硬件pwm实现的38khz调制，因此此驱动只能使用支持pwm的引脚，具体哪些引脚需要查阅树莓派的gpio功能说明  
 
 ---
 本驱动是基于树莓派官方的`gpio-ir-tx`进行了增强，增强功能如下：  
